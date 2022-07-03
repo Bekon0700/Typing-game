@@ -37,7 +37,12 @@ function getRandomQuote() {
 }
 
 async function getNextQuote() {
-    const quote = await getRandomQuote();
+    let quote
+    try{
+        quote = await getRandomQuote();
+    }catch(err){
+        quote = "When I get up in the morning, I feel so grateful for every second I have with you and have here on Earth. You give my life meaning; you give my days such joy; you are the reason I smile. Thank you for being with me, for joining me on this journey through life. Your love is everything to me and API is not working"
+    }
     quoteDisplay.innerHTML = ''
     quote.split('').forEach(character => {
         const characterSpan = document.createElement('span');
